@@ -1,0 +1,28 @@
+# YAML Ain´t Markup Language
+
+person:
+  name: &name 'alex' # &anchor see id
+  occupation: 'no idea'
+  age: 39
+  gpa: 3.5
+  fav_num: 1e+10
+  male: true
+  birthday: 1980-11-26 12:26:53 # ISO8601
+  flaws: null
+  hobbies:
+    - hiking
+    - movies
+    - riding bike
+  movies: ['Dark Knight', 'Good Will Hunting']
+  friend:
+    - name: 'Steph'
+      age: 22
+    - {name: 'Adam', age:22}
+  description: > # one line
+    fjek slfjmymxnvmns kafjksfjlke.
+    lekjD, FEojad, lg leirjajl.
+  signature: | # preserve formatting
+    Alex
+    Teste Academy
+    alex@teste.com
+  id: *name #anchor alex
