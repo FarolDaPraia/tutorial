@@ -19,6 +19,8 @@ def yaml_dump(filepath, data):
     """Dump data to a yaml file."""
     with open(filepath, 'w') as file_descriptor:
         yaml.dump(data, file_descriptor)
+    output = yaml.dump(data)
+    return data
 
 
 if __name__ == "__main__":
@@ -31,4 +33,4 @@ if __name__ == "__main__":
 
     filepath2 = 'test.yaml'
     data2 = {'items': {'sword': 100, 'axe': 80, 'boots': 40}}
-    yaml_dump(filepath2, data2)
+    teste = yaml_dump(filepath2, data2)
