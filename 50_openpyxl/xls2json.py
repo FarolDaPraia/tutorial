@@ -82,8 +82,13 @@ class BestSalesItems:
         return json.dumps(result, indent=2)
 
 
-teste = Sample('SampleData.xlsx', 'SalesOrders')
-datas = teste.get_datas()
-sales = BestSalesItems(datas)
-new_struc = sales.catalog2json()
-print(new_struc)
+def main():
+    teste = Sample('SampleData.xlsx', 'SalesOrders')
+    datas = teste.get_datas()
+    sales = BestSalesItems(datas)
+    new_struc = sales.catalog2json()
+    return new_struc
+
+
+if __name__ == '__main__':
+    main()
