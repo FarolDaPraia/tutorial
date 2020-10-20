@@ -59,10 +59,10 @@ class Sample:
         return self.datas
 
 
-class BestSalesItems(dict):
-    def __init__(self):
+class BestSalesItems:
+    def __init__(self, datas):
         self.catalog = {}
-        # self.datas2json()
+        self.datas2itemrep(datas)
 
     def datas2itemrep(self, datas):
         for data in datas:
@@ -78,11 +78,12 @@ class BestSalesItems(dict):
                 self.catalog[infos['item']][infos['rep']] = value
 
     def catalog2json(self):
-        return json.dumps(self.catalog, indent=2)
+        result = {'catalog': self.catalog}
+        return json.dumps(result, indent=2)
 
 
 teste = Sample('SampleData.xlsx', 'SalesOrders')
 datas = teste.get_datas()
-sales = BestSalesItems()
-sales.datas2itemrep(datas)
+sales = BestSalesItems(datas)
 new_struc = sales.catalog2json()
+print(new_struc)
