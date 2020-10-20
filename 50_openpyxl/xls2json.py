@@ -1,4 +1,5 @@
 from openpyxl import load_workbook
+import json
 
 
 class Data:
@@ -13,6 +14,15 @@ class Data:
 
     def __repr__(self):
         return f'{self.__dict__}'
+
+    def get_data(self):
+        return {
+            'order_data': self.orderData,
+            'region': self.region,
+            'rep': self.rep,
+            'item': self.item,
+            'units': self.units,
+        }
 
 
 class Sample:
@@ -45,5 +55,34 @@ class Sample:
                 )
             )
 
+    def get_datas(self):
+        return self.datas
+
+
+class BestSalesItems(dict):
+    def __init__(self):
+        self.catalog = {}
+        # self.datas2json()
+
+    def datas2itemrep(self, datas):
+        for data in datas:
+            infos = data.get_data()
+            if infos['item'] not in self.catalog.keys():
+                self.catalog[infos['item']] = {infos['rep']: infos['units']}
+            elif infos['rep'] not in self.catalog[infos['item']].keys():
+                self.catalog[infos['item']][infos['rep']] = infos['units']
+            else:
+                value = (
+                    self.catalog[infos['item']][infos['rep']] + infos['units']
+                )
+                self.catalog[infos['item']][infos['rep']] = value
+
+    def catalog2json(self):
+        return json.dumps(self.catalog, indent=2)
+
 
 teste = Sample('SampleData.xlsx', 'SalesOrders')
+datas = teste.get_datas()
+sales = BestSalesItems()
+sales.datas2itemrep(datas)
+new_struc = sales.catalog2json()
