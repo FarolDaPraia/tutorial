@@ -27,7 +27,7 @@ def fim():
             while letter in map_word or letter in blacklist:
                 print(f"The letter {letter} would already inserted\n")
                 letter = input("Please insert a new letter: ")
-            return guess(letter)
+            guess(letter)
         else:
             print("you´ve found the word!")
     else:
