@@ -3,6 +3,8 @@ path of python learning
 
 * 49_YAML
 * 50_openpyxl
+* 51_MVC
+* 52_built_in
 
 ## Projects
 * hangman
