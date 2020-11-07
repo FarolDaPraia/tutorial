@@ -1,0 +1,57 @@
+1) Introduction to machine learning
+
+2) data exploration and visualization
+
+3) data preparation
+
+4) Introduction to supervised learning
+
+5) improving machine learning models
+
+6) supervised machine learning
+
+7) unsupervised machine learning
+
+
+Historical Notes
+    - So the term Big Data was coined by these two astronomers in 1997.
+    - ccc big data pipeline from white paper 2012
+  1) acquisition / recording   -> obtain the data
+  2) extraction / cleaning / annotation -> reduce the noise a bit and get rid of the data you don´t directly need
+  you're turning the data from what is potentially a pile of rubbish into something you might actually be able to
+  work with.
+  3) integration / aggregation / representation -> set up the data in a way that's directly conducive to data mining.
+  data are going to be properly structured tables and you´v egot one central databases where all that information is
+  storaged nice and neathly
+  4) analysis / modeling -> machine learning and data mining take place
+  5) interpretation -> results
+
+    - kdd (knowledge discovery in databases) process published in 1996.
+    two groups of people ccc and kdd they come up with the same diagram.
+
+    - crisp-dm (cross industy standard process for data mining)
+    includes business understanding and data understanding
+    many backward arrows with many iterations
+  1) assessment and business understanding
+  What do you really want to accomplish?
+  What are your constraints, what are your risks?
+  And how are you gonna evaluate the quality of the results?
+  2) data understanding and data acquisition.
+  velocity, variety, volume, veracity (four Vs of big data)
+
+    - model building
+    predictive modeling means machine learning or statistical modeling.
+    if your goal is to answer yes or no questions, then this is classification.
+    If you wanna predict the numerical value, this is regression.
+    if you want to group observations into similar looking groups, that's actually a clustering problem.
+    If you wanna recommend someone an item, then this is a recommendation system.
+    ....usw
+
+    - policy construction
+    To model building that part the last that's predictive, policy construction is prescriptive.
+
+    - Evaluation,
+    so how do you measure the quality of the results?
+
+    - deployment
+    it will need to be updated and improved.

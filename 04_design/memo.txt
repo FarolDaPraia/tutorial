@@ -1,0 +1,5 @@
+Tech With Tim - An Introduction to Software Design - With Python
+https://www.youtube.com/watch?v=-njsRb8Tn70&t=726s
+
+Livro: Practives of the Python Pro
+Dane Hillard

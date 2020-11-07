@@ -1,0 +1,14 @@
+Tech With Tim - Python Object Oriented Programming (OOP)
+https://www.youtube.com/watch?v=JeznW_7DlB0
+
+Executed Binary - Python OOP - Deck of Cards
+https://www.youtube.com/watch?v=t8YkjDH86Y4&list=WL&index=8&t=0s
+
+Building a Poker Game in Python 1/3: Building a Deck
+https://www.youtube.com/watch?v=C26lA9dGubo
+
+Building a Poker Game in Python 2/3
+https://www.youtube.com/watch?v=AY4erZa6MZ4&t=861s
+
+Building a Poker Game in Python 3/3
+https://www.youtube.com/watch?v=z84oyxItl18

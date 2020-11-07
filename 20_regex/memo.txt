@@ -1,0 +1,71 @@
+Python Regular Expression Tutorial
+https://www.datacamp.com/community/tutorials/python-regular-expression-tutorial
+
+- Regular expressions are used to identify whether a pattern exists in a given sequence of characters.
+
+- used to validate the format of email addresses or password during registration, used for parsing text data files to find, replace or delete certain string
+
+- import re
+
+Basic Patterns: Ordinary Characters
+>>>pattern = r"Cookie"
+>>>sequence = "Cookie"
+>>>if re.match(pattern, sequence):
+      print("Match!")
+>>>else: print("Not a match!")
+
+- The match() function returns a match object if the text matches the pattern. Otherwise it returns None
+- 'r' This is called a raw string literal.For example, \ is just a backslash when prefixed with a r rather than being interpreted as an escape sequence.
+
+Wild Card Characters: Special Characters
+'.' - A period. Matches any single character except newline character.
+>>>re.search(r'Co.k.e', 'Cookie').group()
+'Cookie'
+The group() function returns the string matched by the re
+
+\w - Lowercase w. Matches any single letter, digit or underscore.
+>>>re.search(r'Co\wk\we', 'Cookie').group()
+
+\W - Uppercase w. Matches any character not part of \w (lowercase w).
+>>>re.search(r'C\Wke', 'C@ke').group()
+
+\s - Lowercase s. Matches a single whitespace character like: space, newline, tab, return.
+re.search(r'Eat\scake', 'Eat cake').group()
+
+\S - Uppercase s. Matches any character not part of \s (lowercase s).
+re.search(r'Cook\Se', 'Cookie').group()
+
+\t - Lowercase t. Matches tab.
+\n - Lowercase n. Matches newline.
+\r - Lowercase r. Matches return.
+\d - Lowercase d. Matches decimal digit 0-9.
+^ - Caret. Matches a pattern at the start of the string.
+$ - Matches a pattern at the end of string.
+[abc] - Matches a or b or c.
+[a-zA-Z0-9] - Matches any letter from (a to z) or (A to Z) or (0 to 9).
+\A - Uppercase a. Matches only at the start of the string. Works across multiple lines as well.
+\b - Lowercase b. Matches only the beginning or end of the word.
+\ - Backslash. If the character following the backslash is a recognized escape character, then the special meaning of the term is taken.
+
+Repetitions
++ - Checks for one or more characters to its left.
+* - Checks for zero or more characters to its left.
+? - Checks for exactly zero or one character to its left.
+
+{x} - Repeat exactly x number of times.
+{x,} - Repeat at least x times or more.
+{x, y} - Repeat at least x times but no more than y times.
+
+Groups and Grouping using Regular Expressions
+>>>email_address = 'Please contact us at: support@datacamp.com'
+>>>match = re.search(r'([\w\.-]+)@([\w\.-]+)', email_address)
+>>>if match:
+      print(match.group()) # The whole matched text
+      print(match.group(1)) # The username (group 1)
+      print(match.group(2)) # The host (group 2)
+
+Regular Expressions (Regex) Tutorial: How to Match Any Pattern of Text
+https://www.youtube.com/watch?v=sa-TUpSx1JA
+
+Python Tutorial: re Module - How to Write and Match Regular Expressions (Regex)
+https://www.youtube.com/watch?v=K8L6KVGG-7o

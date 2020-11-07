@@ -1,0 +1,38 @@
+12. Virtual Environments and Packages
+https://docs.python.org/3/tutorial/venv.html
+
+Python Tutorial: VENV (Windows) - How to Use Virtual Environments with the Built-In venv Module
+https://www.youtube.com/watch?v=APOPm01BVrk&t=292s
+
+Python Tutorial: virtualenv and why you should use virtual environments
+https://www.youtube.com/watch?v=N5vscPTWKOk
+
+short cuts
+Creating a virtual environment
+py -m venv env
+
+Activating a virtual environment
+.\env\Scripts\activate
+
+Leaving the virtual environment
+deactivate
+
+--------------------------------------------------------------------------
+ps - Set-ExecutionPolicy
+  description: Sets the PowerShell execution policies for Windows computers.
+  start PowerShell with Run as Administrator
+  Get-ExecutionPolicy -List
+  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+---------------------------------------------------------------------------
+
+Installing Python Modules - pip
+https://docs.python.org/3/installing/index.html
+
+short cuts
+https://pypi.org/       - find packages
+pip uninstall camelcase - remove packages
+pip list                - list packages
+pip install ?package == ?.?.? - specific versioin
+pip install --upgrade ?package - update package
+pip freeze > requirements.txt - list of the installed packages (cat requirements.txt)
+pip install -r requirements.txt - install all necessary packages for app

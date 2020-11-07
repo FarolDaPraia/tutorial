@@ -1,0 +1,36 @@
+Python Book - Dave Kuhlman
+- A dictionary is a collection, whose values are accessible by key.
+- The order of elements in a dictionary is undefined. But, we can iterate over
+  (1) the keys,
+  (2) the values,
+  (3) the items (key-value pairs) in a dictionary.
+- Keys must be immutable objects: ints, strings, tuples, ...
+
+constructing dictionaries:
+        d1 = {}
+        d2 = {key1: value1, key2: value2, }
+
+dict() - can be used to create instances of the class dict.
+        dict({'one': 2, 'two': 3})
+        dict(zip(('one', 'two'), (2, 3)))
+
+Indexing Access or add items to a dictionary with the indexing operator [ ].
+        In [102]: dict1 = {}
+        In [103]: dict1['name'] = 'dave'
+        In [104]: dict1['category'] = 38
+        In [105]: dict1
+        Out[105]: {'category': 38, 'name': 'dave'}
+
+When iterating over large dictionaries, use methods iterkeys(), itervalues(), and iteritems().
+
+To test for the existence of a key in a dictionary, use the in operator or the mydict.has_key(k) method.
+The in operator is preferred.
+
+You can often avoid the need for a test by using method get.
+        >>> d = {'tomato': 101, 'cucumber': 102}
+        >>> d.get('tomato', 1)
+        101
+        >>> d.get('chard', 1)
+        1
+        >>> if d.get('eggplant') is None:
+        ... print 'missing'

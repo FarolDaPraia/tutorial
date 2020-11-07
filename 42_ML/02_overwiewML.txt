@@ -1,0 +1,18 @@
+- goal: is to train a model to produce useful response to the input. The response is typically a prediction f(x)=y
+
+- If we know what those Y values are when we're training the model, we call those the labels. the learning is supervised by knowing the labels.
+
+- Unsupervised Machine Learning, we only have features. We don't know the labels and
+
+- K-Nearest Neighbors Algorithm or KNN. --> It's just whatever the data are they determine the nearest neighbors.
+    - really simple method,
+    - it's been around for a very long time.
+    - It doesn't require any particular training.
+    - It needs labels to know what the cases are but we don't train on those labels.
+      uses a distance metric
+      euclidian distance
+      weighted distance
+      k - defines the number of neighbors we're going to use to make that prediction.
+
+    - Problems: and this inpervades all Machine Learning. It's an effective classifier when it works,
+    but it suffers from something we call the curse of dimensionality.

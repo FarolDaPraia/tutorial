@@ -1,0 +1,10 @@
+https://www.python.org/dev/peps/pep-0257/
+
+Minissérie Pythonica: Funções #5 - Documentando funções com docstrings
+https://www.youtube.com/watch?v=O_MezGJfGqU
+
+Auto-Generated Python Documentation with Sphinx
+https://www.youtube.com/watch?v=b4iFyrLQQh4
+
+a tool that makes it easy to create intelligent and beautiful documentation,
+http://www.sphinx-doc.org/en/stable/

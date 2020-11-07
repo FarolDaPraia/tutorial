@@ -1,0 +1,61 @@
+Minissérie Pythonica: Funções #6 - Funções como objetos de primeira classe
+https://www.youtube.com/watch?v=8NeSCqr6dFE&list=PLOQgLBuj2-3LRIKxqcse1EL4hXhUFuHsR&index=6
+
+
+Funcao dentro de uma variavel. Funcao se comportando como objeto.
+
+exemplo 1:
+func = lambda: 'resultado da funcao'
+>>fun
+<function __main__.<lambda>()
+
+exemplo 2:
+
+from typing import Callable, Dict
+
+calc: Dict[str, Callable] = {
+    'soma': lambda x, y: x + y,
+    'sub': lambda x, y: x - y,
+    'mult': lambda x, y: x * y,
+    'div': lambda x, y: x / y,
+}
+
+>>calc
+<function __main__.<lambda>(x, y)
+<function __main__.<lambda>(x, y)
+<function __main__.<lambda>(x, y)
+<function __main__.<lambda>(x, y)
+>>calc['soma'](1, 1)
+2
+
+exemplo 3:
+from numbers import Number
+
+def soma(x: Number, y: Number) -> Number:
+  return x + y
+
+def sub(x: Number, y: Number) -> Number:
+  return x - y
+
+def div(x: Number, y: Number) -> Number:
+  return x / y
+
+def mult(x: Number, y: Number) -> Number:
+  return x * y
+
+clac_nomeado = {
+            'soma': soma,
+            'sub': sub,
+            'mult': mult,
+            'div': div,
+}
+>>calc_nomeado['soma'](1, 1)
+
+exemplo 4:
+somas = [
+      lambda x: x + 0,
+      lambda x: x + 1,
+      lambda x: x + 2,
+      ]
+>>somas[2](1)
+3
