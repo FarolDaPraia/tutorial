@@ -1,0 +1,35 @@
+unittest — Unit testing framework
+https://docs.python.org/3/library/unittest.html
+
+Corey Schafer: Unit Testing Your Code with the unittest Module
+https://www.youtube.com/watch?v=6tNS--WetLI
+
+Live de Python #75 - Testes de unidade
+https://www.youtube.com/watch?v=Sr9lUR1COpU
+
+Live de Python #76 - Testes de unidade p.II - Dublês de teste
+https://www.youtube.com/watch?v=mOrsJwY2038
+
+Live de Python #79 - Testes de unidade na prática
+https://www.youtube.com/watch?v=atvuOV8QWRE
+
+Live de Python #80 - Melhorando testes de unidade
+https://www.youtube.com/watch?v=HuZ2Keoc9Hs
+
+Live de Python #81 - Testando o que está pronto
+https://www.youtube.com/watch?v=jqDxDsRJtAo
+
+Escrevendo Testes com Flask e #justPython [FlaskConf2018]
+https://www.youtube.com/watch?v=MS1US-iCh2M
+
+Live de Python #85 - Engenharia de qualidade (QE) - Com Og Maciel
+https://www.youtube.com/watch?v=AQzMk0j41S0
+
+pytest: helps you write better programs
+https://docs.pytest.org/en/latest/getting-started.html
+
+Testando Código com Pytest | Marcus Pereira
+https://www.youtube.com/watch?v=RTX5pLdv1Iw
+
+o testador está morto
+https://www.youtube.com/watch?v=nGaiS2o1QRw

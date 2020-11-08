@@ -1,0 +1,17 @@
+PEP 3107 -- Function Annotations
+https://www.python.org/dev/peps/pep-3107/
+
+typing — Support for type hints
+https://docs.python.org/3/library/typing.html
+
+Live de Python #84 -Type Hints e anotações de funções
+https://www.youtube.com/watch?v=yEighFc_bZM
+
+Minissérie Pythonica: Funções #4 - Anotações de tipos de argumentos
+https://www.youtube.com/watch?v=uSpbNd1XaKg
+
+Mypy is an optional static type checker for Python
+http://mypy-lang.org/
+
+MonkeyType collects runtime types of function arguments and return values
+https://monkeytype.readthedocs.io/en/latest/

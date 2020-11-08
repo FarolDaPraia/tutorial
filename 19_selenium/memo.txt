@@ -1,0 +1,15 @@
+https://www.selenium.dev/
+
+O que é selenium?
+é uma biblioteca, de software livre, sob licenca Apache 2.0, que te ajuda a resolver trabalhos maunais
+e repetitivos usando o browser. W3C
+
+Para que serve o selenium?
+- automacao de teste de software
+- criacao de bots
+- reducao de trabalho repetitivo
+- raspar dados da internet - scrappy   --> https://scrapy.org/
+
+Selenium IDE
+Selenium WebDriver - Separa o codigo com o browser. possibilidade de escrever um codigo e ser rodado atraves do webdriver para todos os browser
+Selenium Grid

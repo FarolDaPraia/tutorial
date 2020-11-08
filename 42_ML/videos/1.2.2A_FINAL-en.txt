@@ -1,0 +1,276 @@
+>> Hi and welcome.
+So, now it's time to build
+our first machine learning model in this class.
+We're going to build this model to
+classify a three class data set.
+So, it's three species of iris flowers,
+and this iris data sets actually very
+famous in the history of statistics and machine learning.
+It goes back believe it or not into
+the 1930s when it was originally collected.
+So, let's have a look at
+my screen here and I'll show you the steps.
+Basically, we're going to go through a workflow of how
+you do a machine learning model using Python
+and scikit-learn package of Python.
+So, first thing you should always do
+when building a machine learning model
+is have a look at the data.
+So, we're going to load this data set,
+and we'll give it some column names.
+So, there's four characteristics
+of these flowers that we'll use to classify them.
+Basically, the sepal length and width,
+and the petal length and with.
+Sepals are part of the flower structure.
+So, we're going to go ahead and run that,
+when we've loaded the data,
+and you can see we've got the length and width,
+for sepals and petals,
+and we have a species name ''Setosa''.
+We can also look at the types of data.
+Fortunately for us to make this easy, this demo easy,
+these three or four features which
+are the sepal and petal lengths and widths,
+which are already floating point numbers, so,
+we don't need to do any change there.
+We can do a quick count here and look at
+the category or these categories
+that we're trying to classify by cases.
+We're again in luck, there is exactly 50 of each of
+these three species of
+iris flowers that we're trying to classify.
+So, we don't have to worry about
+any class imbalance here.
+In this code, I'm just using some "Mat Plot
+Lib" and Seaborne package.
+So, I'm using the LM plot method
+from Seaborne to make a nice plot,
+and we'll look at two different views here
+of these flower data.
+So, we're going to
+look at petal width versus sepal length,
+and sepal width versus sepal length.
+There's other possible views here of course,
+but the main thing to notice is that for example,
+''Setosa'' which is in blue here,
+seems to be pretty well
+separated from the other two species,
+and the other two species the ''Versicolor'' and
+''Virginica'' have some overlap.
+So, we may expect
+some errors when we build a classifying model.
+So, next we have to prepare the data set.
+This is simple in
+this case because it's a very simple problem,
+but keep in mind you always have to do
+proper preparation of your data set or you're
+not going to get good results with machine learning.
+So, for the numpy numerical columns
+here which I'm calling numpy columns,
+I'm going to just use the scale
+from the scikit-learn pre-processing package.
+I'm just going to scale the whole data set at once.
+Normally, we'd split it and then scale,
+but in this case for simplicity,
+we're just going to go ahead and scale,
+and we're going to rebuild a data frame,
+and we're going to run the describe method
+on that data frame.
+So, we can get a little feel for this.
+So, you see there's 150 cases in each case.
+But what I want to call your attention to is for example
+the standard deviation now is one,
+pretty much one all the way across
+because we've scaled these data,
+and the mean in every case is essentially zero.
+So, we call this mean,
+demeaned, and variance-scaled data.
+So now, each of these features
+have the same numeric range of values.
+They're not going, one isn't going to
+dominate another and training our model
+creating bias just because
+the numerical range is different.
+Now there's one other issue
+with this data set that scikit-learn
+cannot deal with categorical variables
+for classification it needs numeric,
+and in fact it's the case that scikit-learn
+can only deal with numeric numpy arrays.
+So, we've got to transform them.
+So, I've built this dictionary
+here where I'm going to assign,
+so, my keys are ''Setosa, Versicolor,
+Virginica,'' and I'm going to assign them
+numbers zero, one, two,
+and I simply do that in
+this easy list comprehension
+here and we'll have a look at what I get.
+You can see well, the first five rows
+here are all ''Setosa'' so,
+they all have zero as their species code.
+So, one last preparation
+step before we actually get to train and test the model.
+I know it seems like a lot of prep,
+but prep is key to success here.
+We have to split the model.
+We don't want to have bias because we in our evaluation,
+if you trained a model and evaluated
+the model with the same data,
+you'd get overly optimistic results because you're
+using a biased evaluation data set.
+So, what we have to do is we'll split.
+In scikit-learn, the model selection package within
+scikit-learn has this train test split function,
+and basically we just split the data set.
+We're going to create a training set of features,
+a training set of labels,
+and a test set of features,
+and a tests of labels.
+We're going to exactly split this data.
+So, we're going to Bernoulli a randomly sample this data.
+So, we're going to have 75 cases in our test data,
+75 cases in our training data.
+There's one other trick here,
+you have to, we want a one dimensional numpy array.
+So, we have to use numpy raval on this result here,
+where we take the column or else we wind up with
+a two dimensional numpy array
+which is going to cause things to break.
+So, and we'll print the shape of each of
+those resulting numpy arrays.
+So, you see it's 75 by four,
+because we have four features.
+Seventy five by nothing,
+because we have one label for training.
+Seventy five by four,
+because we have four features
+we're going to use for test,
+and 75 by nothing,
+because we have 75 labels we'll
+use for testing. All right.
+So now, we're finally ready to build
+a machine learning model here and you can
+see from Scikitlearn.neighbors we're
+going to import the KNeighborsClassifier.
+So there's always two steps
+in training of scikit-learn model.
+The first step is this one here,
+where you define a model object
+and I'm calling it KNN_model.
+This is where you can give
+arguments or hyper parameters for the model object.
+So in this case, we're going to do
+our number of neighbors is going to be three.
+So I just say that here.
+I'm not going to give
+any other hyper parameters in this demo.
+Then we fit the model with a fit method.
+You see there's a fit method,
+and we give it the training features
+as an NumPY array and
+the training labels as a NumPY array. Let me run that.
+You'll see what you get back is,
+if you don't assign this to anything else you get back
+this little print out and it tells you what you're doing.
+It says the distance we're using
+is the Minkowski distance
+which is basically not different from the Euclidean.
+So you can see, the one hyper parameter I
+set was the number of neighbors was three, et cetera.
+We're not doing any fancy waiting here.
+We're just taking the majority vote
+of the three nearest neighbors.
+So now, we have to test
+our model and we have this test data set.
+So we're creating a data frame here,
+because we want to do some nice graphics
+we're going to put our test
+features into a data frame.
+We're going to add to
+that data frame a column we're calling
+"Predicted" and I compute
+that using this predict method
+on our model object and the test feature.
+So the test features of the argument is a NumPY array,
+predicts what the scores should
+be based on the training we just did for that model.
+So the only other thing I need to do
+is determine whether it's correct or not.
+So how do I do that?
+Well, I've got this list comprehension and so I zip up,
+predict it in the actual label values.
+So you see, I'm using zip and now I've got X and Z here.
+So I say, it's one if X equals Z.
+That is I've correctly classified the case.
+The predicted is equal to the label or zero otherwise.
+Then I'm just going to compute an accuracy metric here.
+In other lessons, we'll go into
+more detail evaluating classifier models.
+But in this case, we're just going to compute
+accuracy which is just the number we get
+correct over the total number of cases,
+so that's very simple times
+100 so it will come out in percent.
+I'll just print that,
+we get 96 percent accuracy.
+Well, that's pretty good given
+that we've done very little work,
+albeit on an easy problem.
+How good or bad that is given how easy the problem is,
+is certainly up to debate but it seems pretty
+good for a first try at that.
+So there's one other thing we can do which is,
+we can also create those plots
+again and see what that overlap,
+what those errors look like.
+On my screen here,
+I have code to do just that.
+So how does this code work?
+So first off, we have to go back the other way.
+So we are going to recode zero as
+the key B Setosa one is versicolor, two is virginica.
+So that's our species,
+so now we give the species something human readable
+and I'm going to use
+two different markers and those markers,
+I'm going to use like a little triangle and a circle.
+So triangles for correctly classified cases,
+circle for errors,
+and then we're going to use the same
+color scheme we had before.
+You can see with seaborn,
+I can set a marker type here.
+I get the columns,
+I get the colors,
+and we'll talk about the details of
+the seaborn in another lesson.
+So don't worry about those details too much just now.
+But let's go ahead and make this plot.
+Recall that the triangles are correctly classified.
+So here, we have Setosa,
+and our virginica, and versicolor are here.
+So you start to see misclassified cases, these circles.
+So there's a couple here and one here and there they are,
+a circle and some other circles.
+So generally, we did pretty
+well you can see there's a decision boundary
+somewhere running through here for
+example which the K
+means classifier is using the K equals 3,
+K means classifier is using,
+to determine which class to put that flower species in.
+That's when you're close to
+the boundary and have some overlap,
+that's why we have some errors.
+So I hope that gives you an overview of how we
+can use Scikit-learn to
+train a classifier model and evaluate it.
+So what were the steps?
+We prepared the data which included some re-coding,
+scaling, and splitting.
+Then we trained the model on a training dataset,
+we evaluated the model on the test dataset,
+and we made some plots so we
+could see where the errors were.

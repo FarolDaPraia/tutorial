@@ -1,0 +1,10 @@
+unittest.mock — biblioteca de objeto mock
+https://docs.python.org/pt-br/3/library/unittest.mock.html
+
+Understanding the Python Mock Object Library
+https://realpython.com/python-mock-library/
+
+
+O que é Mock?
+- o objeto que será mocado substitui o objeto real para fim de teste. Aumentando qualitativamente o ambiente de teste.
+  Um deste aumento é o empoderamento do desenvolviemto do codigo, já que voce isola as mudancas que possam ocorrer durante o processo em desenvolvimento.

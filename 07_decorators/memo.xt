@@ -1,0 +1,139 @@
+Live de Python #87 - Decoradores
+https://www.youtube.com/watch?v=5q-qz3GAj5U
+
+Live de Python #6 - Funções, closures e decoradores em Python
+https://www.youtube.com/watch?v=TaZGQXWFsf4
+
+-----------------
+
+Decoradores
+
+pertencentes a higher-order functions, pois ou recebe uma funcao como argumento
+ou retorna uma funcao
+
+suporta no melhoramento da funcoes. Trazendo simplicidade ao codigo
+com a reducao de linhas de codigo e ainda assim extendendo a funcao base.
+
+Conhecido como wrappers (envelopa), que dao a funcao base novas funcionalidades sem que tenha que
+alterar a funcao base.
+Podendo ser usado antes da ou depois da execucao da funcao base.
+
+Possibilidades:
+- funcao passada como argumento.
+
+def decorator(func):
+   def wrap():
+     print('codigo')
+     func()
+     print('mais codigo')
+   return wrap
+
+@decorator
+def printName():
+   print('codigo')
+
+>> printName()
+
+- decorador com parametros: funcao será automaticamente executada (exemplo 4 vezes)
+sem a necessidade de chamada do método sayHello.
+
+def run_times(num):
+   def wrap(func):
+     for i in range(num):
+       func()
+   return wrap
+
+@run_times(4)
+def sayHello():
+   print('hello')
+
+>>sayHello()
+
+- funcao com decorador e parametros
+
+wrap funcao tem que ter os exatos argumentos da funcao original
+
+def birthday(func):
+   def wrap(name, age):
+     func(name, age+1)
+   return wrap
+
+@birthday
+def celebrate(name, age):
+   print('happy birthday {name}, you are now {age}')
+
+>>celebrate('paul',43)
+
+
+para entender melhor os decoradores, vale a pena primeiramente falar de "nested functions"
+funcoes aninhadas, onde se define uma funcao dentro de outra funcao: (Closures)
+
+def func_externa(val):
+   "funcao com outra definida internamente"
+   def procedimento_oculto():
+      return val
+
+    print('Antes do oculto')
+    print(val)
+    print('Depois do oculto')
+
+Com isso podemos ter o recurso de acessar valores que fora definido fora da funcao base, segue exemplo:
+
+def media_acumulada():
+    valores = []  # valores que serao chamadas dentro da funcao interna!!!!!
+
+    def calcula_media(valor):
+      valores.append(valor)
+      return sum(valores)/len(valores)
+
+    return calcula_media
+
+>>media_acumulada
+<function __main__.media_acumulada()>
+
+  --> com esta caracteristica, evita o acesso a variavel valores. pois este esta envelopado pela funcao.
+
+>>media_acumulada.__code__.co_varnames
+('calcula_media',)  --> tupla
+
+>>media.__code__.co_varnames
+('valor',)
+
+>>media.__closure__
+(<cell at 0x04F5AE80: list object at 0x04F72808>,)
+
+
+Exemplo:
+
+def validate_type(type, *args):
+    return all(isinstance(val, int) for val in [x, y])
+
+def soma(x, y):
+    #if all(isinstance(val, int) for val in [x, y]):   -> 1. alternativa
+    #if validate_type(int, x, y):   -> 2. alternativa já com o acrescimo da funcao validate_type
+        return x + y
+
+def sub(x, y):
+    #if all(isinstance(val, int) for val in [x, y]):   -> 1. alternativa
+    #if validate_type(int, x, y):   -> 2. alternativa já com o acrescimo da funcao validate_type
+        return x - y
+
+  refatorado
+
+  def validate_type(type):
+      #type é livre
+      def validate(func):
+          #func é livre
+          def inner(*args, **kwargs):
+              if all(isinstance(val, int) for val in [x, y]):
+                  return func(*args)
+          return inner
+      return validate_type
+
+  @validate_type(int):
+  def soma(x, y):
+      return x + y
+
+
+  apofundar com functools
+  https://github.com/Lucretiel/Dispatch
