@@ -36,3 +36,6 @@ def filter_set(aquarium_creatures, search_string):
         return False
     return filter(iterator_func, aquarium_creatures)
 ```
+## zip()
+
+## map()
